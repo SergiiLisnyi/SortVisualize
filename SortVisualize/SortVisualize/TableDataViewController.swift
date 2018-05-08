@@ -10,35 +10,50 @@ import UIKit
 
 class TableDataViewController: UIViewController {
 
-    var array: [Int] = []
+   
     var model = Model()
+    var sortType: SortType!
     
-   weak var dataController: TableController?
-    
+    @IBOutlet weak var dataTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // print (array)
-        
-        array = model.createArray()
+        self.title = sortType.title
     }
 
- 
-    
     @IBAction func nextButtonTapped(_ sender: UIButton) {
        
-        let result = model.sortBubble()
+        let result = model.sort(type: sortType)
+        let startIndex = IndexPath(item: result.at, section: 0)
+        let finishIndex = IndexPath(item: result.to, section: 0)
         
+        dataTable.beginUpdates()
+        dataTable.moveRow(at: startIndex, to: finishIndex)
+        dataTable.moveRow(at: finishIndex, to: startIndex)
+        dataTable.endUpdates()
         
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let controller = segue.destination as? TableController else { return }
-        dataController = controller
-    }
-    
-
 }
+
+extension TableDataViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableDataViewCell.identifier, for: indexPath) as? TableDataViewCell else  {
+            return UITableViewCell()
+        }
+        cell.configureWith(text: String(model.getElement(byIndex: indexPath.row)))
+        return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
 
 

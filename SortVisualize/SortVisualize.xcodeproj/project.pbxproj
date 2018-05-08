@@ -16,7 +16,6 @@
 		285CB6E820A0452D00C4FD5C /* SortVisualizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CB6E720A0452D00C4FD5C /* SortVisualizeUITests.swift */; };
 		285CB6F620A053A800C4FD5C /* TableDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CB6F520A053A800C4FD5C /* TableDataViewController.swift */; };
 		285CB6F820A0558E00C4FD5C /* TableDataViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CB6F720A0558E00C4FD5C /* TableDataViewCell.swift */; };
-		285CB6FA20A05EC100C4FD5C /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CB6F920A05EC100C4FD5C /* TableController.swift */; };
 		285CB6FC20A06B2000C4FD5C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CB6FB20A06B2000C4FD5C /* Model.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +52,6 @@
 		285CB6E920A0452D00C4FD5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285CB6F520A053A800C4FD5C /* TableDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataViewController.swift; sourceTree = "<group>"; };
 		285CB6F720A0558E00C4FD5C /* TableDataViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataViewCell.swift; sourceTree = "<group>"; };
-		285CB6F920A05EC100C4FD5C /* TableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		285CB6FB20A06B2000C4FD5C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +106,6 @@
 				285CB6C720A0452A00C4FD5C /* AppDelegate.swift */,
 				285CB6C920A0452A00C4FD5C /* ViewController.swift */,
 				285CB6F520A053A800C4FD5C /* TableDataViewController.swift */,
-				285CB6F920A05EC100C4FD5C /* TableController.swift */,
 				285CB6FB20A06B2000C4FD5C /* Model.swift */,
 				285CB6CB20A0452A00C4FD5C /* Main.storyboard */,
 				285CB6CE20A0452D00C4FD5C /* Assets.xcassets */,
@@ -272,7 +269,6 @@
 				285CB6CA20A0452A00C4FD5C /* ViewController.swift in Sources */,
 				285CB6C820A0452A00C4FD5C /* AppDelegate.swift in Sources */,
 				285CB6FC20A06B2000C4FD5C /* Model.swift in Sources */,
-				285CB6FA20A05EC100C4FD5C /* TableController.swift in Sources */,
 				285CB6F820A0558E00C4FD5C /* TableDataViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
