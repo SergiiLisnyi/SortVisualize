@@ -10,8 +10,11 @@ import UIKit
 
 class TableDataViewController: UIViewController {
 
-   
-    var model = Model()
+    let sizeModel = 10
+    let rangeModel = 1000
+    
+    lazy var model = Model(size: sizeModel, range: rangeModel)
+    
     var sortType: SortType!
     @IBOutlet weak var nextStepButton: UIButton!
     @IBOutlet weak var dataTable: UITableView!
@@ -58,7 +61,7 @@ extension TableDataViewController {
         let alertController = UIAlertController(title: "Sort finished", message: "Restart sort?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cansel", style: .cancel) { (action) in })
         alertController.addAction(UIAlertAction(title: "Ok", style: .default) { (action) in
-            self.model = Model()
+            self.model = Model(size: self.sizeModel, range: self.rangeModel)
             self.dataTable.reloadData()
             self.nextStepButton.setTitle("Next", for: .normal)
         })

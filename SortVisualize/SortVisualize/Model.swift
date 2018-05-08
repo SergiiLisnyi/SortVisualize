@@ -10,20 +10,20 @@ import Foundation
 
 class Model {
     
-    static let sizeModel = 5
-    static let rangeModel = 1000
-    
-    var array: [Int] = createArray(size: sizeModel)
+    var array: [Int] = []
     var lastStep = 0
-    
     var count: Int {
         return array.count
     }
     
-    static func createArray(size: Int) -> [Int] {
+    init (size: Int, range: Int) {
+        array = self.createArray(size: size, range: range)
+    }
+    
+    func createArray(size: Int, range: Int) -> [Int] {
         var tempArray: [Int] = []
         for _ in 0..<size {
-            tempArray.append(Int(arc4random_uniform(UInt32(rangeModel))))
+            tempArray.append(Int(arc4random_uniform(UInt32(range))))
         }
         return tempArray
     }
