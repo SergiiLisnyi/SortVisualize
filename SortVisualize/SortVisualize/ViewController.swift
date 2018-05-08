@@ -39,7 +39,6 @@ class ViewController: UIViewController {
     }
 }
 
-
 enum SortType {
     case Bubble
     case Insert

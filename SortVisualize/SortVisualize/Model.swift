@@ -33,16 +33,14 @@ class Model {
     }
     
     private func stepSortBubble() -> (at: Int, to: Int) {
-        var temp: Int = 0
         for i in lastStep ..< array.endIndex {
             lastStep = i
-            for j in i ..< array.endIndex {
-                if array[j] < array[i] {
-                    temp = array[i]
-                    array[i] = array[j]
-                    array[j] = temp
-
-                    return (at: i, to: j)
+            for j in 0 ..< array.endIndex - 1 {
+                if array[j] > array[j + 1 ] {
+                    let temp = array[j]
+                    array[j] = array[j + 1]
+                    array[j + 1] = temp
+                    return (at: j, to: j + 1)
                 }
             }
         }
@@ -57,7 +55,6 @@ class Model {
                     let tmp = array[index]
                     array[index] = array[barrier]
                     array[barrier] = tmp
-                    
                     return (at: barrier, to: index)
                 }
             }
