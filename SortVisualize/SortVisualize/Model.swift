@@ -10,7 +10,7 @@ import Foundation
 
 class Model {
     
-    static let sizeModel = 10
+    static let sizeModel = 5
     static let rangeModel = 1000
     
     var array: [Int] = createArray(size: sizeModel)

@@ -22,32 +22,47 @@ class TableDataViewController: UIViewController {
     }
 
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-       
-        let result = model.sort(type: sortType)
-        let startIndex = IndexPath(item: result.at, section: 0)
-        let finishIndex = IndexPath(item: result.to, section: 0)
+        let sortResult = model.sort(type: sortType)
+        let startIndex = IndexPath(item: sortResult.at, section: 0)
+        let finishIndex = IndexPath(item: sortResult.to, section: 0)
         
         dataTable.beginUpdates()
         UIView.animate(withDuration: 1.0) {
-            self.light(indexStart: result.at, indexFinish: result.to, color: .lightGray)
+            self.light(indexStart: sortResult.at, indexFinish: sortResult.to, color: .lightGray)
         }
     
         dataTable.moveRow(at: startIndex, to: finishIndex)
         dataTable.moveRow(at: finishIndex, to: startIndex)
         
         UIView.animate(withDuration: 1.0) {
-            self.light(indexStart: result.at, indexFinish: result.to, color: .clear)
+            self.light(indexStart: sortResult.at, indexFinish: sortResult.to, color: .clear)
         }
         dataTable.endUpdates()
         
-        nextStepButton.isEnabled = !(result == (at: 0, to: 0))
+        if sortResult == (at: 0, to: 0) {
+            nextStepButton.setTitle("Sort finished", for: .normal)
+            callAlert()
+        }
     }
-    
+   
     func light(indexStart: Int, indexFinish: Int, color: UIColor) {
         let cellStart = dataTable.cellForRow(at: IndexPath(row: indexStart, section: 0)) as? TableDataViewCell
         cellStart?.backgroundColor = color
         let cellFinish = dataTable.cellForRow(at: IndexPath(row: indexFinish, section: 0)) as? TableDataViewCell
         cellFinish?.backgroundColor = color
+    }
+}
+
+extension TableDataViewController {
+    func callAlert() {
+        let alertController = UIAlertController(title: "Sort finished", message: "Restart sort?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cansel", style: .cancel) { (action) in })
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default) { (action) in
+            self.model = Model()
+            self.dataTable.reloadData()
+            self.nextStepButton.setTitle("Next", for: .normal)
+        })
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -69,6 +84,8 @@ extension TableDataViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+
 
 
 
