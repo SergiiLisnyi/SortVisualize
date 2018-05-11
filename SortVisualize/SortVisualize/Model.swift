@@ -10,92 +10,79 @@ import Foundation
 
 class Model {
     
-    var array: [Int] = [1,6,8,0,2]
-    var step = 0
-    
-    
-    func createArray() -> [Int] {
-        var tmpArray: [Int] = []
-        for _ in 0..<10 {
-            tmpArray.append(Int(arc4random_uniform(UInt32(10))))
-        }
-        return tmpArray
+    var array: [Int] = []
+    var lastStep = 0
+    var count: Int {
+        return array.count
     }
     
+    init (size: Int, range: Int) {
+        array = self.createArray(size: size, range: range)
+    }
     
-    func sortBubble() -> (at: Int, to: Int, finish: Bool) {
-        for barrier in (step..<array.endIndex).reversed() {
-            step = barrier
-            for var i in 0..<barrier {
-                if array[i] > array[i + 1] {
-                    let tmp = array[i]
-                    array[i] = array[i + 1]
-                    array[i + 1] = tmp
-
-                    print(array)
-                    print("i \(i)")
-                    return (at: i, to: i + 1, finish: false)
-
+    func createArray(size: Int, range: Int) -> [Int] {
+        var tempArray: [Int] = []
+        for _ in 0..<size {
+            tempArray.append(Int(arc4random_uniform(UInt32(range))))
+        }
+        return tempArray
+    }
+    
+    func getElement(byIndex: Int) -> Int {
+        return array[byIndex]
+    }
+    
+    private func stepSortBubble() -> (at: Int, to: Int) {
+        for i in lastStep ..< array.endIndex {
+            lastStep = i
+            for j in 0 ..< array.endIndex - 1 {
+                if array[j] > array[j + 1 ] {
+                    let temp = array[j]
+                    array[j] = array[j + 1]
+                    array[j + 1] = temp
+                    return (at: j, to: j + 1)
                 }
             }
         }
-        
-        return (at: 0, to: 0, finish: true)
-
+        return (at: 0, to: 0)
     }
-    
-//    func sortBubble (_ array: [Int]) -> [Int] {
-//        var arr = array
-//        for barrier in (0..<arr.endIndex).reversed() {
-//
-//            for var i in 0..<barrier {
-//                if arr[i] > arr[i + 1] {
-//                    let tmp = arr[i]
-//                    arr[i] = arr[i + 1]
-//                    arr[i + 1] = tmp
-//
-//                    print(arr)
-//                }
-//            }
-//        }
-//        return arr
-//    }
-//
-    
-    
-    
-    
-    // sort "Insert"
-    func sortInsert (_ array: [Int]) -> [Int] {
-        var arr = array
-        for k in (1..<arr.endIndex) {
-            let newElement = arr[k]
-            var location = k - 1
-            while ((location >= 0) && (arr[location]) > newElement) {
-                arr[location + 1] = arr[location]
-                location = location - 1
-            }
-            arr [location + 1] = newElement
-        }
-        return arr
-    }
-    
-    // sort "Selection"
-    func sortSelection (_ array: [Int]) -> [Int] {
-        var arr = array
-        for barrier in (0..<arr.endIndex) {
-            var index = barrier + 1
+ 
+    private func stepSortSelection () -> (at: Int, to: Int) {
+        for barrier in (lastStep..<array.endIndex) {
+            lastStep = barrier
             for index in 0..<barrier {
-                if arr[barrier] < arr[index] {
-                    let tmp = arr[index]
-                    arr[index] = arr[barrier]
-                    arr[barrier] = tmp
+                if array[barrier] < array[index] {
+                    let tmp = array[index]
+                    array[index] = array[barrier]
+                    array[barrier] = tmp
+                    return (at: barrier, to: index)
                 }
             }
         }
-        return arr
+        return (at: 0, to: 0)
+    }
+    
+    func stepSortInsert() -> (at: Int, to: Int) {
+        for i in lastStep + 1 ..< array.endIndex {
+            let newElem = array[i]
+            let j = i - 1
+            while j >= 0 && array[j] > newElem {
+                array.swapAt(j + 1, j)
+                return (at: j + 1, to: j)
+            }
+        }
+        return (at: 0, to: 0)
     }
     
     
-    
+    func sort(type: SortType) -> (at: Int, to: Int) {
+        switch type {
+        case SortType.Bubble:
+            return stepSortBubble()
+        case SortType.Insert:
+            return stepSortInsert()
+        case SortType.Selection:
+            return stepSortSelection()
+        }
+    }
 }

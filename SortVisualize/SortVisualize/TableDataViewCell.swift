@@ -11,8 +11,6 @@ import UIKit
 class TableDataViewCell: UITableViewCell {
 
     static let identifier = "customCell"
-    
-    
     @IBOutlet weak var label: UILabel!
     
     override func awakeFromNib() {
@@ -23,5 +21,4 @@ class TableDataViewCell: UITableViewCell {
     func configureWith(text: String) {
         label.text = text
     }
-
 }
