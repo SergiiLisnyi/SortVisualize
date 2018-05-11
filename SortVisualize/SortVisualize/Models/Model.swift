@@ -75,13 +75,13 @@ class Model {
     }
     
     
-    func sort(type: typeSort) -> (at: Int, to: Int) {
+    func sort(type: TypeSortEnum) -> (at: Int, to: Int) {
         switch type {
-        case typeSort.Bubble:
+        case TypeSortEnum.bubble:
             return stepSortBubble()
-        case typeSort.Insert:
+        case TypeSortEnum.insert:
             return stepSortInsert()
-        case typeSort.Selection:
+        case TypeSortEnum.selection:
             return stepSortSelection()
         default:
             return (at: 0, to: 0)

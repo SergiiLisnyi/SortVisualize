@@ -127,17 +127,17 @@ class TypeSortModel {
     }
     
     @discardableResult
-    func sortArray(array: [Int], sortType: typeSort) -> [Int] {
+    func sortArray(array: [Int], sortType: TypeSortEnum) -> [Int] {
         switch sortType {
-        case .Bubble:
+        case .bubble:
             return sortBubble(array)
-        case .Insert:
+        case .insert:
             return sortInsert(array)
-        case .Selection:
+        case .selection:
             return sortSelection(array)
-        case .Merge:
+        case .merge:
             return sortMerge(array)
-        case .Quick:
+        case .quick:
             return quickSort(array: array)
         }
     }  
