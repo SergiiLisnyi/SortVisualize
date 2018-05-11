@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBAction func sortBubbleButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = SortType.Bubble
+        tableStoryBoard.sortType = typeSort.Bubble
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
     }
     
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = SortType.Insert
+        tableStoryBoard.sortType = typeSort.Insert
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
     }
     
@@ -34,15 +34,27 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = SortType.Selection
+        tableStoryBoard.sortType = typeSort.Selection
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
     }
+    
+    
+    @IBAction func statisticsButtonTapped(_ sender: UIButton) {
+        
+    }
+   
+    
 }
 
-enum SortType {
+enum typeSort: Int {
+    case Quick = 0
+    case Merge
     case Bubble
     case Insert
     case Selection
+    
+    
+    
     
     var title: (String) {
         switch self {
@@ -52,9 +64,12 @@ enum SortType {
             return ("Sort Insert")
         case .Selection:
             return ("Sort Selection")
+        case .Merge:
+            return ("Sort Merge")
+        case .Quick:
+            return ("Sort Quick")
         }
     }
-    
 }
 
 

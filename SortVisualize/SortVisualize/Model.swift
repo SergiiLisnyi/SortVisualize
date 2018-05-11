@@ -75,14 +75,16 @@ class Model {
     }
     
     
-    func sort(type: SortType) -> (at: Int, to: Int) {
+    func sort(type: typeSort) -> (at: Int, to: Int) {
         switch type {
-        case SortType.Bubble:
+        case typeSort.Bubble:
             return stepSortBubble()
-        case SortType.Insert:
+        case typeSort.Insert:
             return stepSortInsert()
-        case SortType.Selection:
+        case typeSort.Selection:
             return stepSortSelection()
+        default:
+            return (at: 0, to: 0)
         }
     }
 }

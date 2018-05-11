@@ -15,7 +15,7 @@ class TableDataViewController: UIViewController {
     
     lazy var model = Model(size: sizeModel, range: rangeModel)
     
-    var sortType: SortType!
+    var sortType: typeSort!
     @IBOutlet weak var nextStepButton: UIButton!
     @IBOutlet weak var dataTable: UITableView!
     
