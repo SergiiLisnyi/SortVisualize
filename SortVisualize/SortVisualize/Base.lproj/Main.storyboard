@@ -103,7 +103,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSO-BP-bSi">
                                 <rect key="frame" x="24" y="83" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="-"/>
+                                <state key="normal" title="&lt;-"/>
                                 <connections>
                                     <action selector="decrementButtonTapped:" destination="JL2-aX-eAI" eventType="touchUpInside" id="fV7-p7-Ggv"/>
                                 </connections>
@@ -111,7 +111,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0B-EI-3rX">
                                 <rect key="frame" x="321" y="83" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+"/>
+                                <state key="normal" title="-&gt;"/>
                                 <connections>
                                     <action selector="incrementButtonTapped:" destination="JL2-aX-eAI" eventType="touchUpInside" id="k6l-GO-UGT"/>
                                 </connections>
@@ -154,11 +154,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="1xf-SY-On3">
+                                <rect key="frame" x="24" y="164" width="327" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="trackTintColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nmE-Ez-FO5"/>
                     </view>
                     <connections>
+                        <outlet property="barProgress" destination="1xf-SY-On3" id="fh1-nk-4Oh"/>
                         <outlet property="countElementLabel" destination="8AQ-Oa-5JC" id="mew-k9-WB3"/>
                         <outlet property="dataTable" destination="vzh-yc-62T" id="3ba-Eo-RQ5"/>
                     </connections>

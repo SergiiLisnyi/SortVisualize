@@ -40,7 +40,7 @@ class TimeSortModel {
             for _ in 0..<repetition  {
                 arraySort.sortArray(array: value, sortType: sortType)
             }
-            let time =  Date().timeIntervalSince(currentDateTime) / Double(repetition)
+            let time = Date().timeIntervalSince(currentDateTime) / Double(repetition)
             result.append("size: \(key) sorted in \(time) sec" )
         }
         return result
