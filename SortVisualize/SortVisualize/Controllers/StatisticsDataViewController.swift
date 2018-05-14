@@ -11,6 +11,7 @@ import UIKit
 class StatisticsDataViewController: UIViewController {
 
     
+    @IBOutlet weak var changeModelButton: UIButton!
     @IBOutlet weak var barProgress: UIProgressView!
     @IBOutlet weak var typeArraysLabel: UILabel!
     @IBOutlet weak var dataTable: UITableView!
@@ -39,6 +40,7 @@ class StatisticsDataViewController: UIViewController {
             DispatchQueue.main.sync {
                 self.dataTable.reloadData()
                 barProgress.progress += stepBarProgress
+                barProgress.progress == 1.0 ? (changeModelButton.isEnabled = true) : (changeModelButton.isEnabled = false)
             }
         }
     }
@@ -93,5 +95,4 @@ extension StatisticsDataViewController: UITableViewDelegate, UITableViewDataSour
         view.addSubview(label)
         return view
     }
- 
 }

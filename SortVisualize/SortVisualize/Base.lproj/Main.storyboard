@@ -170,6 +170,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="changeInputArrays"/>
+                                <state key="disabled">
+                                    <color key="titleColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                                </state>
                                 <connections>
                                     <action selector="changeModelButtonTapped:" destination="JL2-aX-eAI" eventType="touchUpInside" id="k6l-GO-UGT"/>
                                 </connections>
@@ -180,6 +183,7 @@
                     </view>
                     <connections>
                         <outlet property="barProgress" destination="1xf-SY-On3" id="fh1-nk-4Oh"/>
+                        <outlet property="changeModelButton" destination="k0B-EI-3rX" id="15H-t6-db5"/>
                         <outlet property="dataTable" destination="vzh-yc-62T" id="3ba-Eo-RQ5"/>
                         <outlet property="typeArraysLabel" destination="8AQ-Oa-5JC" id="s6A-ky-WQh"/>
                     </connections>
