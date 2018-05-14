@@ -13,9 +13,9 @@ class TableDataViewController: UIViewController {
     let sizeModel = 10
     let rangeModel = 1000
     
-    lazy var model = Model(size: sizeModel, range: rangeModel)
+    lazy var model = ArrayModel(size: sizeModel, range: rangeModel)
     
-    var sortType: SortType!
+    var sortType: SortArrayEnum!
     @IBOutlet weak var nextStepButton: UIButton!
     @IBOutlet weak var dataTable: UITableView!
     
@@ -48,7 +48,7 @@ class TableDataViewController: UIViewController {
         }
     }
    
-    func light(indexStart: Int, indexFinish: Int, color: UIColor) {
+    fileprivate func light(indexStart: Int, indexFinish: Int, color: UIColor) {
         let cellStart = dataTable.cellForRow(at: IndexPath(row: indexStart, section: 0)) as? TableDataViewCell
         cellStart?.backgroundColor = color
         let cellFinish = dataTable.cellForRow(at: IndexPath(row: indexFinish, section: 0)) as? TableDataViewCell
@@ -61,7 +61,7 @@ extension TableDataViewController {
         let alertController = UIAlertController(title: "Sort finished", message: "Restart sort?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cansel", style: .cancel) { (action) in })
         alertController.addAction(UIAlertAction(title: "Ok", style: .default) { (action) in
-            self.model = Model(size: self.sizeModel, range: self.rangeModel)
+            self.model = ArrayModel(size: self.sizeModel, range: self.rangeModel)
             self.dataTable.reloadData()
             self.nextStepButton.setTitle("Next", for: .normal)
         })

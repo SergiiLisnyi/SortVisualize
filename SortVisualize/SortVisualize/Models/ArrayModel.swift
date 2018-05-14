@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Model {
+class ArrayModel {
     
     var array: [Int] = []
     var lastStep = 0
@@ -17,17 +17,9 @@ class Model {
     }
     
     init (size: Int, range: Int) {
-        array = self.createArray(size: size, range: range)
+        array = Array.createArray(size: size, range: range)
     }
-    
-    func createArray(size: Int, range: Int) -> [Int] {
-        var tempArray: [Int] = []
-        for _ in 0..<size {
-            tempArray.append(Int(arc4random_uniform(UInt32(range))))
-        }
-        return tempArray
-    }
-    
+
     func getElement(byIndex: Int) -> Int {
         return array[byIndex]
     }
@@ -62,7 +54,7 @@ class Model {
         return (at: 0, to: 0)
     }
     
-    func stepSortInsert() -> (at: Int, to: Int) {
+    private func stepSortInsert() -> (at: Int, to: Int) {
         for i in lastStep + 1 ..< array.endIndex {
             let newElem = array[i]
             let j = i - 1
@@ -75,14 +67,16 @@ class Model {
     }
     
     
-    func sort(type: SortType) -> (at: Int, to: Int) {
+    func sort(type: SortArrayEnum) -> (at: Int, to: Int) {
         switch type {
-        case SortType.Bubble:
+        case SortArrayEnum.bubble:
             return stepSortBubble()
-        case SortType.Insert:
+        case SortArrayEnum.insert:
             return stepSortInsert()
-        case SortType.Selection:
+        case SortArrayEnum.selection:
             return stepSortSelection()
+        default:
+            return (at: 0, to: 0)
         }
     }
 }

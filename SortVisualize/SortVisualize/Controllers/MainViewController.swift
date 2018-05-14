@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
 
     override func viewDidLoad() {
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBAction func sortBubbleButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = SortType.Bubble
+        tableStoryBoard.sortType = .bubble
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
     }
     
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = SortType.Insert
+        tableStoryBoard.sortType = .insert
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
     }
     
@@ -34,28 +34,18 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = SortType.Selection
+        tableStoryBoard.sortType = .selection
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
+    }
+    
+    
+    @IBAction func statisticsButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let statisticsStoryBoard = storyboard.instantiateViewController(withIdentifier: "statisticsStoryBoardID") as? StatisticsDataViewController else { return }
+        self.navigationController?.pushViewController(statisticsStoryBoard, animated: true)
     }
 }
 
-enum SortType {
-    case Bubble
-    case Insert
-    case Selection
-    
-    var title: (String) {
-        switch self {
-        case .Bubble:
-            return ("Sort Bubble")
-        case .Insert:
-            return ("Sort Insert")
-        case .Selection:
-            return ("Sort Selection")
-        }
-    }
-    
-}
 
 
 
