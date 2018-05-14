@@ -48,7 +48,7 @@ class TableDataViewController: UIViewController {
         }
     }
    
-    func light(indexStart: Int, indexFinish: Int, color: UIColor) {
+    fileprivate func light(indexStart: Int, indexFinish: Int, color: UIColor) {
         let cellStart = dataTable.cellForRow(at: IndexPath(row: indexStart, section: 0)) as? TableDataViewCell
         cellStart?.backgroundColor = color
         let cellFinish = dataTable.cellForRow(at: IndexPath(row: indexFinish, section: 0)) as? TableDataViewCell

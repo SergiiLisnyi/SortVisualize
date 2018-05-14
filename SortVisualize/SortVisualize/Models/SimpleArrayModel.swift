@@ -15,11 +15,11 @@ class SimpleArrayModel: TypeArrayModelProtocol {
     var type: TypeArrayEnum = .simple
     
     init() {
-        let data1k = Array<Int>.createArray(count: 1000)
-        let data2k = Array<Int>.createArray(count: 2000)
-        let data4k = Array<Int>.createArray(count: 4000)
-        let data8k = Array<Int>.createArray(count: 8000)
-        let data16k = Array<Int>.createArray(count: 1000) 
+        let data1k = Array<Int>.createArray(size: 1000)
+        let data2k = Array<Int>.createArray(size: 2000)
+        let data4k = Array<Int>.createArray(size: 4000)
+        let data8k = Array<Int>.createArray(size: 8000)
+        let data16k = Array<Int>.createArray(size: 1000) 
         dictionary = [1000 : data1k, 2000: data2k, 4000 : data4k, 8000: data8k,16000 : data16k]
     }
     

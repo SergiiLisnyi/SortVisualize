@@ -22,26 +22,28 @@ class StatisticsDataViewController: UIViewController {
         super.viewDidLoad()
         arrayResult = Array(repeating: Array(repeating: "no data", count: modelData.count), count: TypeSortEnum.count)
    
-        DispatchQueue.global().async {
-            self.doSort(forType: [.insert, .selection, .bubble])
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+             self.doSort(forType: [.insert, .selection, .bubble])
         }
-        
+
         OperationQueue().addOperation {
             self.doSort(forType: [.quick, .merge])
         }
     }
     
-    func doSort(forType: [TypeSortEnum]) {
+    fileprivate func doSort(forType: [TypeSortEnum]) {
+        let stepBarProgress = 1.0 / Float(TypeSortEnum.count)
         for i in 0..<forType.count {
             arrayResult[forType[i].rawValue] = StatisticsSortModel.timeSort(sortType: forType[i], dictionary: modelData.dictionary)
             DispatchQueue.main.sync {
                 self.dataTable.reloadData()
-                barProgress.progress += 0.2
+                barProgress.progress += stepBarProgress
             }
         }
     }
     
-    func changeModel(modelDataType: TypeArrayEnum) -> TypeArrayModelProtocol {
+    fileprivate func changeModel(modelDataType: TypeArrayEnum) -> TypeArrayModelProtocol {
         switch modelDataType {
         case .simple:
             return SortedArrayModel()

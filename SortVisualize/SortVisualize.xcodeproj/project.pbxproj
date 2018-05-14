@@ -100,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		285C947120A96E6E009BBDC1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				28F1E6CF20A458BA0087DC42 /* Array.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		285CB6BB20A0452900C4FD5C = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				285CB6C720A0452A00C4FD5C /* AppDelegate.swift */,
+				285C947120A96E6E009BBDC1 /* Extension */,
 				287E066E20A5A18B001EC063 /* Models */,
 				287E066C20A58D70001EC063 /* TypeArrayModelProtocol.swift */,
 				287E067120A5B2C4001EC063 /* Enums */,
@@ -133,7 +142,6 @@
 				285CB6D020A0452D00C4FD5C /* LaunchScreen.storyboard */,
 				285CB6D320A0452D00C4FD5C /* Info.plist */,
 				285CB6F720A0558E00C4FD5C /* TableDataViewCell.swift */,
-				28F1E6CF20A458BA0087DC42 /* Array.swift */,
 			);
 			path = SortVisualize;
 			sourceTree = "<group>";
@@ -162,8 +170,8 @@
 				287E066820A5864C001EC063 /* SimpleArrayModel.swift */,
 				287E066A20A58C8A001EC063 /* SortedArrayModel.swift */,
 				287E066F20A5A20F001EC063 /* ReverseArrayModel.swift */,
-				28F1E6CB20A423B70087DC42 /* TypeSortModel.swift */,
 				28F1E6CD20A42A120087DC42 /* StatisticsSortModel.swift */,
+				28F1E6CB20A423B70087DC42 /* TypeSortModel.swift */,
 				285CB6FB20A06B2000C4FD5C /* ArrayModel.swift */,
 			);
 			path = Models;
