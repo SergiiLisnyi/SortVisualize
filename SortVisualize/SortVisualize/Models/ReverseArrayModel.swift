@@ -12,6 +12,7 @@ class ReverseArrayModel : TypeArrayModelProtocol {
    
     var name: String = TypeArrayEnum.reverse.title
     var dictionary: [Int: [Int]]
+    var type: TypeArrayEnum = .reverse
     
     init() {
         let data1k = Array<Int>.createArray(count: 1000)
@@ -23,7 +24,7 @@ class ReverseArrayModel : TypeArrayModelProtocol {
                       2000: data2k.sorted(){$0 > $1},
                       4000 : data4k.sorted(){$0 > $1},
                       8000: data8k.sorted(){$0 > $1},
-                      16000 : data16k.sorted(){$0 > $1} ]
+                      16000 : data16k.sorted(){$0 > $1}]
     }
     
     var count: Int {

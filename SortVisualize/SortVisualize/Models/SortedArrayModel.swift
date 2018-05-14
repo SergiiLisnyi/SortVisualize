@@ -12,7 +12,8 @@ class SortedArrayModel: TypeArrayModelProtocol {
     
     var name: String = TypeArrayEnum.sorted.title
     var dictionary: [Int: [Int]]
-
+    var type: TypeArrayEnum = .sorted
+    
     init() {
         let data1k = Array<Int>.createArray(count: 1000)
         let data2k = Array<Int>.createArray(count: 2000)

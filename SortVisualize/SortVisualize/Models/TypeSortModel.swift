@@ -11,7 +11,7 @@ import Foundation
 class TypeSortModel {
     
     //sort "Bubble"
-    func sortBubble (_ array: [Int]) -> [Int] {
+    static func sortBubble (_ array: [Int]) -> [Int] {
         var arr = array
         for barrier in (0..<arr.endIndex).reversed() {
             for i in 0..<barrier {
@@ -26,7 +26,7 @@ class TypeSortModel {
     }
     
     // sort "Insert"
-    func sortInsert (_ array: [Int]) -> [Int] {
+    static func sortInsert (_ array: [Int]) -> [Int] {
         var arr = array
         for k in (1..<arr.endIndex) {
             let newElement = arr[k]
@@ -41,7 +41,7 @@ class TypeSortModel {
     }
     
     //sortMerge
-    func sortMerge(_ array: [Int]) -> [Int] {
+    static func sortMerge(_ array: [Int]) -> [Int] {
         guard array.count > 1 else { return array }
         let middleIndex = array.count / 2
         let leftArray = sortMerge(Array(array[0..<middleIndex]))
@@ -49,7 +49,7 @@ class TypeSortModel {
         return merge(leftArray, rightArray)
     }
     
-    func merge(_ left: [Int], _ right: [Int]) -> [Int] {
+    static func merge(_ left: [Int], _ right: [Int]) -> [Int] {
         var leftIndex = 0
         var rightIndex = 0
         var orderedArray: [Int] = []
@@ -84,7 +84,7 @@ class TypeSortModel {
     }
     
     // sort "Selection"
-    func sortSelection (_ array: [Int]) -> [Int] {
+    static func sortSelection (_ array: [Int]) -> [Int] {
         var arr = array
         for barrier in (0..<arr.endIndex) {
             for index in 0..<barrier {
@@ -99,7 +99,7 @@ class TypeSortModel {
     }
     
     // sort "Quick"
-    func quickSort(array: [Int], left: Int = 0, right: Int? = nil) -> [Int] {
+    static func quickSort(array: [Int], left: Int = 0, right: Int? = nil) -> [Int] {
         let right = right ?? array.count - 1
         var arrayResult = array
         var m = left
@@ -127,7 +127,7 @@ class TypeSortModel {
     }
     
     @discardableResult
-    func sortArray(array: [Int], sortType: TypeSortEnum) -> [Int] {
+    static func sortArray(array: [Int], sortType: TypeSortEnum) -> [Int] {
         switch sortType {
         case .bubble:
             return sortBubble(array)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Model {
+class ArrayModel {
     
     var array: [Int] = []
     var lastStep = 0

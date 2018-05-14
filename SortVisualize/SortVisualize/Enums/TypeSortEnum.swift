@@ -15,7 +15,6 @@ enum TypeSortEnum: Int {
     case insert
     case selection
     
-    
     var title: (String) {
         switch self {
         case .bubble:
@@ -36,8 +35,4 @@ enum TypeSortEnum: Int {
         while let _ = TypeSortEnum(rawValue: max) { max += 1 }
         return max
     }()
-    
-    
-    
-    
 }

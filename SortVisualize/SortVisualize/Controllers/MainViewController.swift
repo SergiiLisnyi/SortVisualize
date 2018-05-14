@@ -40,10 +40,10 @@ class MainViewController: UIViewController {
     
     
     @IBAction func statisticsButtonTapped(_ sender: UIButton) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let statisticsStoryBoard = storyboard.instantiateViewController(withIdentifier: "statisticsStoryBoardID") as? StatisticsDataViewController else { return }
+        self.navigationController?.pushViewController(statisticsStoryBoard, animated: true)
     }
-   
-    
 }
 
 

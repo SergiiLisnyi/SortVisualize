@@ -15,10 +15,8 @@ class StatisticsDataViewController: UIViewController {
     @IBOutlet weak var typeArraysLabel: UILabel!
     @IBOutlet weak var dataTable: UITableView!
 
-    let statisticsSort = StatisticsSortModel()
     var modelData: TypeArrayModelProtocol = SimpleArrayModel()
     var arrayResult: Array<Array<String>> = [[],[]]
-    var progress = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +33,7 @@ class StatisticsDataViewController: UIViewController {
     
     func doSort(forType: [TypeSortEnum]) {
         for i in 0..<forType.count {
-            arrayResult[forType[i].rawValue] = self.statisticsSort.timeSort(sortType: forType[i], dictionary: modelData.dictionary)
+            arrayResult[forType[i].rawValue] = StatisticsSortModel.timeSort(sortType: forType[i], dictionary: modelData.dictionary)
             DispatchQueue.main.sync {
                 self.dataTable.reloadData()
                 barProgress.progress += 0.2
@@ -43,23 +41,21 @@ class StatisticsDataViewController: UIViewController {
         }
     }
     
-    func changeModel(model: TypeArrayModelProtocol) -> TypeArrayModelProtocol {
-        switch model {
-        case is SimpleArrayModel:
+    func changeModel(modelDataType: TypeArrayEnum) -> TypeArrayModelProtocol {
+        switch modelDataType {
+        case .simple:
             return SortedArrayModel()
-        case is SortedArrayModel:
+        case .sorted:
             return ReverseArrayModel()
-        case is ReverseArrayModel:
+        case .reverse:
             return SimpleArrayModel()
-        default:
-            return SortedArrayModel()
         }
     }
 
     @IBAction func changeModelButtonTapped(_ sender: UIButton) {
         barProgress.progress = 0
         self.viewDidLoad()
-        modelData = changeModel(model: modelData)
+        modelData = changeModel(modelDataType: modelData.type)
         typeArraysLabel.text = modelData.name
     }
 }

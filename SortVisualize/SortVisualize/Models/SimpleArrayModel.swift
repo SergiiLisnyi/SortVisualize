@@ -12,7 +12,8 @@ class SimpleArrayModel: TypeArrayModelProtocol {
     
     var name: String = TypeArrayEnum.simple.title
     var dictionary: [Int: [Int]]
-
+    var type: TypeArrayEnum = .simple
+    
     init() {
         let data1k = Array<Int>.createArray(count: 1000)
         let data2k = Array<Int>.createArray(count: 2000)
@@ -27,5 +28,4 @@ class SimpleArrayModel: TypeArrayModelProtocol {
             return dictionary.count
         }
     }
-    
 }
