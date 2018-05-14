@@ -9,10 +9,10 @@
 import Foundation
 
 protocol TypeArrayModelProtocol {
-    var dictionary: [Int: [Int]] { get set }
+    var dictionaryData: [Int: [Int]] { get set }
     var name: String { get }
     var count: Int { get }
-    var type: TypeArrayEnum { get }
+    var type: InputDataEnum { get }
 }
 
 

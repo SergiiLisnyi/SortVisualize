@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Array {
+extension Array where Element == Int {
     
     static func createArray(size:Int) -> [Int] {
         var result: [Int] = []

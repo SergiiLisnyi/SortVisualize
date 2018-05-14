@@ -21,8 +21,8 @@
 		287E066B20A58C8A001EC063 /* SortedArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E066A20A58C8A001EC063 /* SortedArrayModel.swift */; };
 		287E066D20A58D70001EC063 /* TypeArrayModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E066C20A58D70001EC063 /* TypeArrayModelProtocol.swift */; };
 		287E067020A5A20F001EC063 /* ReverseArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E066F20A5A20F001EC063 /* ReverseArrayModel.swift */; };
-		287E067420A5B321001EC063 /* TypeArrayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E067320A5B321001EC063 /* TypeArrayEnum.swift */; };
-		287E067620A5B3ED001EC063 /* TypeSortEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E067520A5B3ED001EC063 /* TypeSortEnum.swift */; };
+		287E067420A5B321001EC063 /* InputDataEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E067320A5B321001EC063 /* InputDataEnum.swift */; };
+		287E067620A5B3ED001EC063 /* SortArrayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E067520A5B3ED001EC063 /* SortArrayEnum.swift */; };
 		28F1E6CA20A41AD20087DC42 /* StatisticsDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1E6C920A41AD20087DC42 /* StatisticsDataViewController.swift */; };
 		28F1E6CC20A423B70087DC42 /* TypeSortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1E6CB20A423B70087DC42 /* TypeSortModel.swift */; };
 		28F1E6CE20A42A120087DC42 /* StatisticsSortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1E6CD20A42A120087DC42 /* StatisticsSortModel.swift */; };
@@ -67,8 +67,8 @@
 		287E066A20A58C8A001EC063 /* SortedArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedArrayModel.swift; sourceTree = "<group>"; };
 		287E066C20A58D70001EC063 /* TypeArrayModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeArrayModelProtocol.swift; sourceTree = "<group>"; };
 		287E066F20A5A20F001EC063 /* ReverseArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseArrayModel.swift; sourceTree = "<group>"; };
-		287E067320A5B321001EC063 /* TypeArrayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeArrayEnum.swift; sourceTree = "<group>"; };
-		287E067520A5B3ED001EC063 /* TypeSortEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSortEnum.swift; sourceTree = "<group>"; };
+		287E067320A5B321001EC063 /* InputDataEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDataEnum.swift; sourceTree = "<group>"; };
+		287E067520A5B3ED001EC063 /* SortArrayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortArrayEnum.swift; sourceTree = "<group>"; };
 		28F1E6C920A41AD20087DC42 /* StatisticsDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDataViewController.swift; sourceTree = "<group>"; };
 		28F1E6CB20A423B70087DC42 /* TypeSortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSortModel.swift; sourceTree = "<group>"; };
 		28F1E6CD20A42A120087DC42 /* StatisticsSortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsSortModel.swift; sourceTree = "<group>"; };
@@ -180,8 +180,8 @@
 		287E067120A5B2C4001EC063 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				287E067320A5B321001EC063 /* TypeArrayEnum.swift */,
-				287E067520A5B3ED001EC063 /* TypeSortEnum.swift */,
+				287E067320A5B321001EC063 /* InputDataEnum.swift */,
+				287E067520A5B3ED001EC063 /* SortArrayEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -340,8 +340,8 @@
 				28F1E6CE20A42A120087DC42 /* StatisticsSortModel.swift in Sources */,
 				287E066920A5864C001EC063 /* SimpleArrayModel.swift in Sources */,
 				285CB6F820A0558E00C4FD5C /* TableDataViewCell.swift in Sources */,
-				287E067620A5B3ED001EC063 /* TypeSortEnum.swift in Sources */,
-				287E067420A5B321001EC063 /* TypeArrayEnum.swift in Sources */,
+				287E067620A5B3ED001EC063 /* SortArrayEnum.swift in Sources */,
+				287E067420A5B321001EC063 /* InputDataEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

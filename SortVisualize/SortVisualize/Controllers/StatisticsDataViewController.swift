@@ -18,48 +18,47 @@ class StatisticsDataViewController: UIViewController {
 
     var modelData: TypeArrayModelProtocol = SimpleArrayModel()
     var arrayResult: Array<Array<String>> = [[],[]]
+    var countFillTable = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrayResult = Array(repeating: Array(repeating: "no data", count: modelData.count), count: TypeSortEnum.count)
-   
+        resetTableView()
+        doSortWithOtherThread()
+    }
+    
+    fileprivate func resetTableView() {
+        barProgress.progress = 0
+        countFillTable = 0
+        arrayResult = Array(repeating: Array(repeating: "no data", count: modelData.count), count: SortArrayEnum.count)
+    }
+    
+    fileprivate func doSortWithOtherThread() {
         let queue = DispatchQueue.global(qos: .utility)
         queue.async {
-             self.doSort(forType: [.insert, .selection, .bubble])
+            self.makeSort(for: [.insert, .selection, .bubble])
         }
-
         OperationQueue().addOperation {
-            self.doSort(forType: [.quick, .merge])
+            self.makeSort(for: [.quick, .merge])
         }
     }
     
-    fileprivate func doSort(forType: [TypeSortEnum]) {
-        let stepBarProgress = 1.0 / Float(TypeSortEnum.count)
-        for i in 0..<forType.count {
-            arrayResult[forType[i].rawValue] = StatisticsSortModel.timeSort(sortType: forType[i], dictionary: modelData.dictionary)
+    fileprivate func makeSort(for types: [SortArrayEnum]) {
+        let stepBarProgress = 1.0 / Float(SortArrayEnum.count)
+        for i in 0..<types.count {
+            arrayResult[types[i].rawValue] = StatisticsSortModel.timeSort(sortType: types[i], dictionary: modelData.dictionaryData)
             DispatchQueue.main.sync {
                 self.dataTable.reloadData()
                 barProgress.progress += stepBarProgress
-                barProgress.progress == 1.0 ? (changeModelButton.isEnabled = true) : (changeModelButton.isEnabled = false)
+                changeModelButton.isEnabled = countFillTable == modelData.count - 1
             }
+            countFillTable += 1
         }
     }
     
-    fileprivate func changeModel(modelDataType: TypeArrayEnum) -> TypeArrayModelProtocol {
-        switch modelDataType {
-        case .simple:
-            return SortedArrayModel()
-        case .sorted:
-            return ReverseArrayModel()
-        case .reverse:
-            return SimpleArrayModel()
-        }
-    }
-
     @IBAction func changeModelButtonTapped(_ sender: UIButton) {
-        barProgress.progress = 0
-        self.viewDidLoad()
-        modelData = changeModel(modelDataType: modelData.type)
+        resetTableView()
+        doSortWithOtherThread()
+        modelData = modelData.type.otherModel
         typeArraysLabel.text = modelData.name
     }
 }
@@ -83,14 +82,14 @@ extension StatisticsDataViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return TypeSortEnum.count
+        return SortArrayEnum.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 20))
         view.backgroundColor = .yellow
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 20))
-        label.text = TypeSortEnum(rawValue: section)?.title
+        label.text = SortArrayEnum(rawValue: section)?.title
         label.textAlignment = .center
         view.addSubview(label)
         return view

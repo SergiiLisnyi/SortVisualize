@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     @IBAction func sortBubbleButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = TypeSortEnum.bubble
+        tableStoryBoard.sortType = .bubble
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
     }
     
@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = TypeSortEnum.insert
+        tableStoryBoard.sortType = .insert
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
     }
     
@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let tableStoryBoard = storyboard.instantiateViewController(withIdentifier: "tableStoryBoardID") as? TableDataViewController else { return }
-        tableStoryBoard.sortType = TypeSortEnum.selection
+        tableStoryBoard.sortType = .selection
         self.navigationController?.pushViewController(tableStoryBoard, animated: true)
     }
     

@@ -127,7 +127,7 @@ class TypeSortModel {
     }
     
     @discardableResult
-    static func sortArray(array: [Int], sortType: TypeSortEnum) -> [Int] {
+    static func sortArray(array: [Int], sortType: SortArrayEnum) -> [Int] {
         switch sortType {
         case .bubble:
             return sortBubble(array)

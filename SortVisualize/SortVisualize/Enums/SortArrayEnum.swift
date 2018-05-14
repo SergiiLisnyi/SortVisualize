@@ -8,31 +8,31 @@
 
 import Foundation
 
-enum TypeSortEnum: Int {
+enum SortArrayEnum: Int {
     case quick = 0
     case merge
     case bubble
     case insert
     case selection
     
-    var title: (String) {
+    var title: String {
         switch self {
         case .bubble:
-            return ("Sort Bubble")
+            return "Sort Bubble"
         case .insert:
-            return ("Sort Insert")
+            return "Sort Insert"
         case .selection:
-            return ("Sort Selection")
+            return "Sort Selection"
         case .merge:
-            return ("Sort Merge")
+            return "Sort Merge"
         case .quick:
-            return ("Sort Quick")
+            return "Sort Quick"
         }
     }
     
     static let count: Int = {
         var max: Int = 0
-        while let _ = TypeSortEnum(rawValue: max) { max += 1 }
+        while let _ = SortArrayEnum(rawValue: max) { max += 1 }
         return max
     }()
 }

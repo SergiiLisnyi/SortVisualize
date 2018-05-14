@@ -12,7 +12,7 @@ class StatisticsSortModel {
     
     static let repetition = 5
     
-    static func timeSort (sortType: TypeSortEnum, dictionary: Dictionary<Int, [Int]>) -> [String] {
+    static func timeSort (sortType: SortArrayEnum, dictionary: Dictionary<Int, [Int]>) -> [String] {
         var result: [String] = []
         for (key, value) in dictionary {
             let currentDateTime = Date()

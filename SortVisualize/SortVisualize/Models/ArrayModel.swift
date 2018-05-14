@@ -17,7 +17,7 @@ class ArrayModel {
     }
     
     init (size: Int, range: Int) {
-        array = Array<Int>.createArray(size: size, range: range)
+        array = Array.createArray(size: size, range: range)
     }
 
     func getElement(byIndex: Int) -> Int {
@@ -67,13 +67,13 @@ class ArrayModel {
     }
     
     
-    func sort(type: TypeSortEnum) -> (at: Int, to: Int) {
+    func sort(type: SortArrayEnum) -> (at: Int, to: Int) {
         switch type {
-        case TypeSortEnum.bubble:
+        case SortArrayEnum.bubble:
             return stepSortBubble()
-        case TypeSortEnum.insert:
+        case SortArrayEnum.insert:
             return stepSortInsert()
-        case TypeSortEnum.selection:
+        case SortArrayEnum.selection:
             return stepSortSelection()
         default:
             return (at: 0, to: 0)
